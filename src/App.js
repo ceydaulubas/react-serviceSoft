@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
+import { Switch, Route } from 'react-router-dom';
+
+import NavBar from './components/NavBar';
+import Customers from './components/Pages/Home-Customers';
+import Products from './components/Pages/Products';
+import Orders from './components/Pages/Orders';
+import InvoiceInfo from './components/Pages/InvoiceInfo';
+import MaintenancePrograms from './components/Pages/MaintenancePrograms';
+import PortalInfo from './components/Pages/PortalInfo';
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <NavBar/>
+
+     <Switch>
+          <Route exact path='/' component={Customers}/>
+          <Route path='/products' component={Products}/>
+          <Route path='/orders' component={Orders}/>
+          <Route path='/invoiceInfo' component={InvoiceInfo}/>
+          <Route path='/maintenancePrograms' component={MaintenancePrograms}/>
+          <Route path='/portalInfo' component={PortalInfo}/>
+        </Switch>
+
     </div>
   );
 }
