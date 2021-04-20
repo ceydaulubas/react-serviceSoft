@@ -1,0 +1,29 @@
+[
+    {
+      "customerName": "xyz",
+      "customerType": "Real",
+      "customerRole": "abv",
+      "gsm": 53645988,
+      "email": "xyz@gmail.com",
+      "website": "www.xyz.com",
+      "relatedFirm": "Q Firm",
+      "adress": "ISTANBUL",
+      "note": "",
+      "file": "",
+      "id":"12568"
+    },
+    {
+      "customerName": "xfffz",
+      "customerType": "Real",
+      "customerRole": "abffv",
+      "gsm": 53645488,
+      "email": "xfffz@gmail.com",
+      "website": "www.xyz.com",
+      "relatedFirm": "Q Firm",
+      "adress": "ISTANBUL",
+      "note": "",
+      "file": "",
+      "id":"11456"
+    }
+  ]
+  
