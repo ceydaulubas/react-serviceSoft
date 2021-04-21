@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import customersList from '../../../customers.json'
-import CustomerForm from './CustomerForm';
+import CustomerForm from './CustomerForm/CustomerForm';
 import CustomerBox from './CustomerBox';
 
 
@@ -21,6 +21,7 @@ export class HomeCustomer extends Component {
     // handleAddNewCustomer() - The function that will help CustomerForm.js to lift state.
     handleAddNewCustomer = (newCustomerItem) => {
         const stateCopy = { ...this.state };
+        console.log(newCustomerItem)
         stateCopy.customerState = [...stateCopy.customerState, newCustomerItem];
         stateCopy.form = !stateCopy.form;
         this.setState(stateCopy);
@@ -28,14 +29,15 @@ export class HomeCustomer extends Component {
 
     // handleDeleteCustomer() - The function that will help delete selected customers info from box.
     handleDeleteCustomer = (customerId) => {
-        const customerCopy = { ...this.state.customerState};
-        const customerIndex = customerCopy.findIndex((item) => item.id === customerId);
+        const customerCopy = this.state.customerState;
+        console.log(customerId);
+        var customerIndex = customerCopy.findIndex((item) => item.id === customerId);
         customerCopy.splice(customerIndex, 1);
         this.setState({
             customerState:customerCopy });
     }
 
-     // handleEditCustomer() - customer's info will change thanks to this function.
+    // handleEditCustomer() - customer's info will change thanks to this function.
     // handleEditCustomer = (customerId) => {
     //     const customerCopy = { ...this.state.customerState};
     //     const customerIndex = customerCopy.findIndex((item) => item.id === customerId);
@@ -43,6 +45,9 @@ export class HomeCustomer extends Component {
     //     this.setState({
     //         customerState:customerCopy });
     // }
+
+    //handleFilterCustomerName
+
 
     render() {
         return (
@@ -64,7 +69,8 @@ export class HomeCustomer extends Component {
                             key={index}
                             {...Customer}
                             clickToDelete={this.handleDeleteCustomer}
-                            
+
+
                         />
                     ))}
                 </div>

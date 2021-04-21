@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import '../../../Style/style.css'
+import './form.css'
 
 const InitialState = {
   "customerName": "",
@@ -33,7 +33,7 @@ const HomeCustomers = (props) => {
     setFormState({ ...formState, [inputName]: inputValue });
   };
 
-  // handleFormSubmit - send the data from the component's state to the state in App.js
+  // handleFormSubmit - send the data from the component's state to the state in HomeCustomer.js
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
