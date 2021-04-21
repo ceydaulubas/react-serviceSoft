@@ -24,7 +24,7 @@ const App = () => {
           <Route path='/invoiceInfo' component={InvoiceInfo}/>
           <Route path='/maintenancePrograms' component={MaintenancePrograms}/>
           <Route path='/portalInfo' component={PortalInfo}/>
-          <Route path='/editCustomer/:id' component={EditCustomer}/>
+          <Route path='/editCustomer' component={EditCustomer}/>
         </Switch>
 
     </div>

@@ -41,13 +41,14 @@ export class HomeCustomer extends Component {
     }
 
     // handleEditCustomer() - customer's info will change thanks to this function.
-    handleEditCustomer = (newCustomerItems, customerId) => {
-        const customerCopy = { ...this.state.customerState};
+    handleEditCustomer = (customerId) => {
+        const customerCopy = this.state.customerState;
         const customerIndex = customerCopy.findIndex((item) => item.id === customerId);
-        
-        customerCopy= [newCustomerItems]
-        this.setState({
-            customerState:customerCopy });
+        console.log(customerCopy[customerIndex])
+        this.props.history.push({
+            pathname: "/editCustomer",
+            state: customerCopy[customerIndex]
+        });
     }
 
     // filter customer name according to the incoming search value
@@ -104,6 +105,7 @@ export class HomeCustomer extends Component {
                                     key={index}
                                     {...Customer}
                                     clickToDelete={this.handleDeleteCustomer}
+                                    clickToEdit={this.handleEditCustomer}
                                 />
                             ))
                             : this.state.customerState.map((Customer, index) => (
@@ -111,6 +113,7 @@ export class HomeCustomer extends Component {
                                     key={index}
                                     {...Customer}
                                     clickToDelete={this.handleDeleteCustomer}
+                                    clickToEdit={this.handleEditCustomer}
 
                                 />
                             ))

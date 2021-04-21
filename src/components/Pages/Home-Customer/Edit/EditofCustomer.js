@@ -3,6 +3,8 @@ import React from 'react'
 // import {Form, Button} from 'react-bootstrap'
 
 const EditOfCustomer = (props) => {
+console.log( props.location.state
+  )
     return (
         <div>
         {/* <Form style={{ width: '25%', margin: '2%' }}>
@@ -80,7 +82,9 @@ const EditOfCustomer = (props) => {
         />
         <button className="CustomerEditFormButton">Edit</button>
       </form>
-            
+            <p>
+              {props.customerName}
+            </p>
         </div>
     )
 }

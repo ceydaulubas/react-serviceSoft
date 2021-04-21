@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Link } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 import './box.css'
 
 class CustomerBox extends Component {
@@ -18,14 +18,12 @@ class CustomerBox extends Component {
           <td>{this.props.adress}</td>
           <td>{this.props.file}</td>
           <td>{this.props.note}</td>
-          <td><button>
-          {/* <Link to={"/editCustomer/:key"}> */}
-          Update
-          {/* </Link>  */}
-          </button></td>
+          {/* <td><button><Link to={`/editCustomer/${ this.props.customerName }`}>Edit</Link></button></td> */}
+          
+          {/* <td><button><Link to={{pathname: '/editCustomer',state: this.props}}> Edit</Link></button></td> */}
+          
+          <td><button onClick={() => this.props.clickToEdit(this.props.id)}> Edit</button></td>
           <td><button onClick={() => this.props.clickToDelete(this.props.id)}> Delete</button></td>
-
-
         </tr>
       </tbody>
     )
