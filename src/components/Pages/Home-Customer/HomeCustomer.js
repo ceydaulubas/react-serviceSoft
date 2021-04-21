@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import { Table } from 'react-bootstrap'
 
 import customersList from '../../../customers.json'
 import CustomerForm from './CustomerForm/CustomerForm';
-import CustomerBox from './CustomerBox';
+import CustomerBox from './CustomerBox/CustomerBox';
 
+import '../Home-Customer/CustomerBox/box.css'
 
 export class HomeCustomer extends Component {
     state = {
@@ -11,7 +13,7 @@ export class HomeCustomer extends Component {
         form: false,
     };
 
-    // handleRenderForm() - it changes the value of "form" in our state. Helps with rendering the customer form.
+    // handleRenderForm() - it changes the value of "form" in our state. Helps with rendering the customer form. Like a Toggle Hide and Show.
     handleRenderForm = () => {
         const stateCopy = { ...this.state };
         stateCopy.form = !this.state.form;
@@ -21,20 +23,19 @@ export class HomeCustomer extends Component {
     // handleAddNewCustomer() - The function that will help CustomerForm.js to lift state.
     handleAddNewCustomer = (newCustomerItem) => {
         const stateCopy = { ...this.state };
-        console.log(newCustomerItem)
         stateCopy.customerState = [...stateCopy.customerState, newCustomerItem];
         stateCopy.form = !stateCopy.form;
         this.setState(stateCopy);
     };
 
-    // handleDeleteCustomer() - The function that will help delete selected customers info from box.
+    // handleDeleteCustomer() - The function that will help delete selected customer's id||key from box.
     handleDeleteCustomer = (customerId) => {
         const customerCopy = this.state.customerState;
-        console.log(customerId);
-        var customerIndex = customerCopy.findIndex((item) => item.id === customerId);
+        var customerIndex = customerCopy.findIndex((item) => item.key === customerId);
         customerCopy.splice(customerIndex, 1);
         this.setState({
-            customerState:customerCopy });
+            customerState: customerCopy
+        });
     }
 
     // handleEditCustomer() - customer's info will change thanks to this function.
@@ -63,16 +64,32 @@ export class HomeCustomer extends Component {
                 )}
 
                 <div>
-
-                    {this.state.customerState.map((Customer, index) => (
-                        <CustomerBox
-                            key={index}
-                            {...Customer}
-                            clickToDelete={this.handleDeleteCustomer}
-
-
-                        />
-                    ))}
+                    <Table striped bordered hover className="table">
+                        <thead>
+                            <tr>
+                                <th>Customer Name</th>
+                                <th>Customer Type</th>
+                                <th>Customer Role</th>
+                                <th>GSM Number</th>
+                                <th>E-mail</th>
+                                <th>Web Site</th>
+                                <th>Related Firm</th>
+                                <th>Adress</th>
+                                <th>File</th>
+                                <th>Note</th>
+                                <th>Update</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        {this.state.customerState.map((Customer, index) => (
+                            <CustomerBox
+                                key={index}
+                                {...Customer}
+                                clickToDelete={this.handleDeleteCustomer}
+                            
+                            />
+                        ))}
+                    </Table>
                 </div>
             </div>
         )

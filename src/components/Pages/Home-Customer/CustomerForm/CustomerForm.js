@@ -42,7 +42,7 @@ const HomeCustomers = (props) => {
   };
 
   return (
-    <div className="sidenav">
+    <div className="sidenav" >
         <form onSubmit={handleFormSubmit} className="customerForm">
         <label htmlFor="customerName">Customer Name </label>
           <input

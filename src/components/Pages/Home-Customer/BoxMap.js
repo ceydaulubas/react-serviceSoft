@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 
 import { Table } from 'react-bootstrap'
 
-class CustomerBox extends Component {
+class BoxMap extends Component {
     render() {
         return (
-            <div>
-                <Table striped bordered hover style={{ width: '70%', margin: '2%' }}>
+            <div >
+                <Table striped bordered hover className="table">
                 <thead>
           <tr>
             <th></th>
@@ -37,7 +37,7 @@ class CustomerBox extends Component {
             <td>{this.props.adress}</td>
             <td>{this.props.file}</td>
             <td>{this.props.note}</td>
-            <td><button> Update</button></td>
+            <td><button onclick= {this.handleEditClick}> Update</button></td>
             <td><button onClick={this.props.clickToDelete}> Delete</button></td>
           </tr>
         </tbody>
@@ -47,4 +47,4 @@ class CustomerBox extends Component {
     }
 }
 
-export default CustomerBox
+export default BoxMap;
