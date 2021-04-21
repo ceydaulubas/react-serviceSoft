@@ -4,7 +4,7 @@ import { Table } from 'react-bootstrap'
 import customersList from '../../../customers.json'
 import CustomerForm from './CustomerForm/CustomerForm';
 import CustomerBox from './CustomerBox/CustomerBox';
-import CustomerNameSearch from './FilterCustomers/Filter'
+import CustomerNameSearch from './SearchCustomersName/Filter'
 
 import '../Home-Customer/CustomerBox/box.css'
 
@@ -33,8 +33,7 @@ export class HomeCustomer extends Component {
     // handleDeleteCustomer() - The function that will help delete selected customer's id||key from box.
     handleDeleteCustomer = (customerId) => {
         const customerCopy = this.state.customerState;
-        var customerIndex = customerCopy.findIndex((item) => item.key === customerId);
-        console.log(customerIndex);
+        var customerIndex = customerCopy.findIndex((item) => item.id === customerId);
         customerCopy.splice(customerIndex, 1);
         this.setState({
             customerState: customerCopy
@@ -42,13 +41,14 @@ export class HomeCustomer extends Component {
     }
 
     // handleEditCustomer() - customer's info will change thanks to this function.
-    // handleEditCustomer = (customerId) => {
-    //     const customerCopy = { ...this.state.customerState};
-    //     const customerIndex = customerCopy.findIndex((item) => item.id === customerId);
-    //     customerCopy.splice(customerIndex, 1);
-    //     this.setState({
-    //         customerState:customerCopy });
-    // }
+    handleEditCustomer = (newCustomerItems, customerId) => {
+        const customerCopy = { ...this.state.customerState};
+        const customerIndex = customerCopy.findIndex((item) => item.id === customerId);
+        
+        customerCopy= [newCustomerItems]
+        this.setState({
+            customerState:customerCopy });
+    }
 
     // filter customer name according to the incoming search value
     handleFilterCustomerName = (searchInput) => {
@@ -98,7 +98,6 @@ export class HomeCustomer extends Component {
                             </tr>
                         </thead>
 
-                        {/* Mapping through the state of insurances and passing them to the InsuranceBox component */}
                         {this.state.searching
                             ? this.state.filteredCustomerNameListState.map((Customer, index) => (
                                 <CustomerBox

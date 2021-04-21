@@ -2,7 +2,7 @@ import React from 'react'
 
 // import {Form, Button} from 'react-bootstrap'
 
-const EditOfCustomer = () => {
+const EditOfCustomer = (props) => {
     return (
         <div>
         {/* <Form style={{ width: '25%', margin: '2%' }}>

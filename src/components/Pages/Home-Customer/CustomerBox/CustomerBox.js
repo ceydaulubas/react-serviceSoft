@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-// import { Table } from 'react-bootstrap'
+import { Link } from 'react-bootstrap'
 import './box.css'
 
 class CustomerBox extends Component {
@@ -18,8 +18,12 @@ class CustomerBox extends Component {
           <td>{this.props.adress}</td>
           <td>{this.props.file}</td>
           <td>{this.props.note}</td>
-          <td><button onclick={this.handleEditClick}> Update</button></td>
-          <td><button onClick={this.props.clickToDelete}> Delete</button></td>
+          <td><button>
+          {/* <Link to={"/editCustomer/:key"}> */}
+          Update
+          {/* </Link>  */}
+          </button></td>
+          <td><button onClick={() => this.props.clickToDelete(this.props.id)}> Delete</button></td>
 
 
         </tr>
