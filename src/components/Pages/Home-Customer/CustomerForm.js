@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import '../../../Style/style.css'
 
 const InitialState = {
   "customerName": "",
@@ -41,128 +42,128 @@ const HomeCustomers = (props) => {
   };
 
   return (
-    <div className="customer-creation-form">
+    <div className="sidenav">
+        <form onSubmit={handleFormSubmit} className="customerForm">
+        <label htmlFor="customerName">Customer Name </label>
+          <input
+            className="input"
+            type="text"
+            name="customerName"
+            onChange={handleInputChange}
+            value={formState.customerName}
+            required
+          />
+          <br />
 
-      <form onSubmit={handleFormSubmit} className="insuranceForm">
+          <label htmlFor="customerType">Customer Type </label>
+          <select
+            className="input"
+            type="text"
+            name="customerType"
+            onChange={handleInputChange}
+            value={formState.customerType}
+            
+            required
+          >
+            <option value="Real">Real</option>
+            <option value="corporate entity">Corporate Entity </option>
+          </select>
+          <br />
 
-        <label htmlFor="customerName">Customer Name: </label>
-        <input
-          className="input"
-          type="text"
-          name="customerName"
-          onChange={handleInputChange}
-          value={formState.customerName}
-          required
-        />
-        <br />
+          <label htmlFor="customerRole">Customer Role </label>
+          <textarea rows="1" cols="40"
+            className="input"
+            type="text"
+            name="customerRole"
+            onChange={handleInputChange}
+            value={formState.customerRole}
+            required
+          />
+          <br />
 
-        <label htmlFor="customerType">Customer Type: </label>
-        <select
-          className="input"
-          type="text"
-          name="customerType"
-          onChange={handleInputChange}
-          value={formState.customerType}
-          required
-        >
-          <option value="Real">Real</option>
-          <option value="corporate entity">Corporate Entity </option>
-        </select>
-        <br />
+          <label htmlFor="gsm">GSM Number </label>
+          <input
+            className="input"
+            type="tel"
+            name="gsm"
+            onChange={handleInputChange}
+            value={formState.gsm}
+            // pattern="+94[7-9]{2}-[0-9]{3}-[0-9]{4}"
 
-        <label htmlFor="customerRole">Customer Role: </label>
-        <textarea rows="1" cols="40"
-          className="input"
-          type="text"
-          name="customerRole"
-          onChange={handleInputChange}
-          value={formState.customerRole}
-          required
-        />
-        <br />
+            required
+          />
+          <br />
 
-        <label htmlFor="gsm">GSM Number: </label>
-        <input
-          className="input"
-          type="tel"
-          name="gsm"
-          onChange={handleInputChange}
-          value={"+9"+formState.gsm}
-          pattern="+94[7-9]{2}-[0-9]{3}-[0-9]{4}"
+          <label htmlFor="email">E-mail </label>
+          <input
+            className="input"
+            type="email"
+            name="email"
+            onChange={handleInputChange}
+            value={formState.email}
+            required
+          />
+          <br />
 
-          required
-        />
-        <br />
+          <label htmlFor="website">Web Site </label>
+          <input
+            className="input"
+            type="text"
+            name="website"
+            onChange={handleInputChange}
+            value={formState.website}
+            required
+          />
+          <br />
 
-        <label htmlFor="email">E-mail </label>
-        <input
-          className="input"
-          type="email"
-          name="email"
-          onChange={handleInputChange}
-          value={formState.email}
-          required
-        />
-        <br />
+          <label htmlFor="relatedFirm">Related Firm </label>
+          <select
+            className="input"
+            name="relatedFirm"
+            onChange={handleInputChange}
+            value={formState.relatedFirm}
+            required
+          >
+            <option value="X Firm">X Firm</option>
+            <option value="Y Firm">Y Firm</option>
+            <option value="Z Firm">Z Firm</option>
+            <option value="Q Firm">Q Firm</option>
+          </select>
+          <br />
 
-        <label htmlFor="website">Web Site: </label>
-        <input
-          className="input"
-          type="text"
-          name="website"
-          onChange={handleInputChange}
-          value={formState.website}
-          required
-        />
-        <br />
+          <label htmlFor="file">File </label>
+          <input
+            className="input"
+            type="file"
+            name="file"
+            onChange={handleInputChange}
+            value={formState.file}
+          />
+          <br />
 
-        <label htmlFor="relatedFirm">Related Firm: </label>
-        <select
-          className="input"
-          name="relatedFirm"
-          onChange={handleInputChange}
-          value={formState.relatedFirm}
-          required
-        >
-          <option value="X Firm">X Firm</option>
-          <option value="Y Firm">Y Firm</option>
-          <option value="Z Firm">Z Firm</option>
-          <option value="Q Firm">Q Firm</option>
-        </select>
-        <br />
+          <label htmlFor="adress">Adress </label>
+          <input
+            className="input"
+            type="text"
+            name="adress"
+            onChange={handleInputChange}
+            value={formState.adress}
+            required
+          />
 
-        <label htmlFor="file">File: </label>
-        <input
-          className="input"
-          type="file"
-          name="file"
-          onChange={handleInputChange}
-          value={formState.file}
-        />
-        <br />
+          <br />
+          <label htmlFor="note">Note </label>
+          <textarea rows="1" cols="40"
+            className="input"
+            type="text"
+            name="note"
+            onChange={handleInputChange}
+            value={formState.note}
+          />
+          <br />
+          <button className="customerFormButton">Create</button>
+        </form>
 
-        <label htmlFor="adress">Adress: </label>
-        <input
-          className="input"
-          type="text"
-          name="adress"
-          onChange={handleInputChange}
-          value={formState.adress}
-          required
-        />
-
-        <br />
-        <label htmlFor="note">Note: </label>
-        <textarea rows="1" cols="40"
-          className="input"
-          type="text"
-          name="note"
-          onChange={handleInputChange}
-          value={formState.note}
-        />
-        <br />
-        <button className="CustomerFormButton">Submit</button>
-      </form>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Form, Button} from 'react-bootstrap'
+// import {Form, Button} from 'react-bootstrap'
 
 const EditOfCustomer = () => {
     return (
