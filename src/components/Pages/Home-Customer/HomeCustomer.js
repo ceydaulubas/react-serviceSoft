@@ -4,12 +4,14 @@ import { Table } from 'react-bootstrap'
 import customersList from '../../../customers.json'
 import CustomerForm from './CustomerForm/CustomerForm';
 import CustomerBox from './CustomerBox/CustomerBox';
+import CustomerNameSearch from './FilterCustomers/Filter'
 
 import '../Home-Customer/CustomerBox/box.css'
 
 export class HomeCustomer extends Component {
     state = {
         customerState: customersList,
+        filteredCustomerNameListState: [],
         form: false,
     };
 
@@ -32,6 +34,7 @@ export class HomeCustomer extends Component {
     handleDeleteCustomer = (customerId) => {
         const customerCopy = this.state.customerState;
         var customerIndex = customerCopy.findIndex((item) => item.key === customerId);
+        console.log(customerIndex);
         customerCopy.splice(customerIndex, 1);
         this.setState({
             customerState: customerCopy
@@ -47,7 +50,18 @@ export class HomeCustomer extends Component {
     //         customerState:customerCopy });
     // }
 
-    //handleFilterCustomerName
+    // filter customer name according to the incoming search value
+    handleFilterCustomerName = (searchInput) => {
+        const stateCopy = { ...this.state };
+        const filteredCustomersList = stateCopy.customerState.filter((customerItem) =>
+            customerItem.customerName.toLowerCase().includes(searchInput.toLowerCase())
+        );
+        stateCopy.filteredCustomerNameListState = filteredCustomersList;
+        stateCopy.searching = true;
+
+        this.setState(stateCopy);
+    };
+
 
 
     render() {
@@ -58,12 +72,14 @@ export class HomeCustomer extends Component {
                 <button className="addCustomerButton" onClick={this.handleRenderForm}>
                     Create New Customer
         </button>
+
                 {/* Toggle the form when this.state.form has the value of "true"*/}
                 {this.state.form && (
                     <CustomerForm handleLiftCustomerFormState={this.handleAddNewCustomer} />
                 )}
 
                 <div>
+                    <CustomerNameSearch handleFilterSearch={this.handleFilterCustomerName} />
                     <Table striped bordered hover className="table">
                         <thead>
                             <tr>
@@ -81,14 +97,25 @@ export class HomeCustomer extends Component {
                                 <th>Delete</th>
                             </tr>
                         </thead>
-                        {this.state.customerState.map((Customer, index) => (
-                            <CustomerBox
-                                key={index}
-                                {...Customer}
-                                clickToDelete={this.handleDeleteCustomer}
-                            
-                            />
-                        ))}
+
+                        {/* Mapping through the state of insurances and passing them to the InsuranceBox component */}
+                        {this.state.searching
+                            ? this.state.filteredCustomerNameListState.map((Customer, index) => (
+                                <CustomerBox
+                                    key={index}
+                                    {...Customer}
+                                    clickToDelete={this.handleDeleteCustomer}
+                                />
+                            ))
+                            : this.state.customerState.map((Customer, index) => (
+                                <CustomerBox
+                                    key={index}
+                                    {...Customer}
+                                    clickToDelete={this.handleDeleteCustomer}
+
+                                />
+                            ))
+                        }
                     </Table>
                 </div>
             </div>
