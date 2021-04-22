@@ -1,17 +1,20 @@
 import React, { Component } from 'react'
 import { Table } from 'react-bootstrap'
 
+import Button from '@material-ui/core/Button';
+
 import customersList from '../../../customers.json'
 import CustomerForm from './CustomerForm/CustomerForm';
 import CustomerBox from './CustomerBox/CustomerBox';
 import CustomerNameSearch from './SearchCustomersName/Filter'
 
-import '../Home-Customer/CustomerBox/box.css'
+import '../Home-Customer/Style/HomeCustomerStyle.css'
 
 export class HomeCustomer extends Component {
     state = {
         customerState: customersList,
         filteredCustomerNameListState: [],
+        showRealCustomerType: false,
         form: false,
     };
 
@@ -44,7 +47,7 @@ export class HomeCustomer extends Component {
     handleEditCustomer = (customerId) => {
         const customerCopy = this.state.customerState;
         const customerIndex = customerCopy.findIndex((item) => item.id === customerId);
-        console.log(customerCopy[customerIndex])
+        // console.log(customerCopy[customerIndex])
         this.props.history.push({
             pathname: "/editCustomer",
             state: customerCopy[customerIndex]
@@ -68,19 +71,21 @@ export class HomeCustomer extends Component {
     render() {
         return (
             <div>
+                <div className="add-filter-part">
+                
+                <CustomerNameSearch handleFilterSearch={this.handleFilterCustomerName} />
 
-                {/* Button to toggle addCustomer form */}
-                <button className="addCustomerButton" onClick={this.handleRenderForm}>
-                    Create New Customer
-        </button>
-
-                {/* Toggle the form when this.state.form has the value of "true"*/}
-                {this.state.form && (
-                    <CustomerForm handleLiftCustomerFormState={this.handleAddNewCustomer} />
-                )}
+                    {/* Button to toggle addCustomer form */}
+                    <Button variant="contained" className="addCustomerButton" onClick={this.handleRenderForm}>Add New Customer</Button>
+                    {/* <button className="addCustomerButton" onClick={this.handleRenderForm}>Add New Customer</button> */}
+                    {/* Toggle the form when this.state.form has the value of "true"*/}
+                    {this.state.form && (
+                        <CustomerForm handleLiftCustomerFormState={this.handleAddNewCustomer} />
+                    )}
+                    
+                </div>
 
                 <div>
-                    <CustomerNameSearch handleFilterSearch={this.handleFilterCustomerName} />
                     <Table striped bordered hover className="table">
                         <thead>
                             <tr>

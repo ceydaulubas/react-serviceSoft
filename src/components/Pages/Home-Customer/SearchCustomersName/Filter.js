@@ -1,4 +1,5 @@
 import React from 'react'
+import '../Style/HomeCustomerStyle.css'
 
 const CustomerNameSearch = (props) => {
 
@@ -10,14 +11,12 @@ const CustomerNameSearch = (props) => {
     };
 
     return (
-        <div>
             <input
                 className="customerNameSearch"
                 name="search"
                 type="text"
                 placeholder="Filter by Customer's Name.."
                 onChange={handleSearchInput} />
-        </div>
     )
 }
 

@@ -1,90 +1,90 @@
-import React from 'react'
+import React, { useState } from 'react';
+import './Edit.css'
 
 // import {Form, Button} from 'react-bootstrap'
 
 const EditOfCustomer = (props) => {
-console.log( props.location.state
-  )
+
+const [formState, setFormState] = useState(props.location.state);
+
+console.log(props.location.state)
+const handleInputEdit = (event) => {
+
+  // inputValue - the data coming in from the input fields
+  let inputValue = event.target.value;
+  let inputName = event.target.name;
+  let inputType = event.target.type;
+
+  if (inputType === 'number') {
+    inputValue = parseInt(inputValue);
+  }
+
+  setFormState({ ...formState, [inputName]: inputValue });
+
+
+};
+
     return (
         <div>
-        {/* <Form style={{ width: '25%', margin: '2%' }}>
-  <Form.Group controlId="formBasicEmail">
-    <Form.Label>Customer Name</Form.Label>
-    <Form.Control type="email" placeholder="Customer Name" />
-  </Form.Group>
-
-  <Form.Group controlId="formBasicPassword">
-    <Form.Label>Customer Role</Form.Label>
-    <Form.Control type="password" placeholder="Customer Role" />
-  </Form.Group>
-
-  <Form.Group controlId="formBasicPassword">
-    <Form.Label>GSM Number</Form.Label>
-    <Form.Control type="password" placeholder="GSM Number" />
-  </Form.Group>
-
-  <Form.Group controlId="formBasicPassword">
-    <Form.Label>E-Mail</Form.Label>
-    <Form.Control type="password" placeholder="E-Mail" />
-  </Form.Group>
-
-  <Button variant="primary" type="submit">
-    Submit
-  </Button>
-</Form> */}
-
 <form 
-// onSubmit={handleFormSubmit} className="insuranceForm"
+onSubmit={EditOfCustomer } className="EditForm"
 >
-
-        <label htmlFor="customerName">Customer Name: </label>
+        <label className="edit-label" htmlFor="customerName">Customer Name </label>
         <textarea rows="1" cols="40"
-          className="input"
+          className="edit-input"
           type="text"
           name="customerName"
-        //   onChange={handleInputChange}
-        //   value={formState.customerName}
+          onChange={handleInputEdit}
+          value={formState.customerName}
 
         />
         <br />
-        <label htmlFor="customerRole">Customer Role: </label>
+        <label className="edit-label" htmlFor="customerRole">Customer Role </label>
         <select
-          className="input"
+           className="edit-input"
           type="text"
           name="customerType"
-        //   onChange={handleInputChange}
-        //   value={formState.customerType}
+          onChange={handleInputEdit}
+          value={formState.customerType}
         >
           <option value="Real">x</option>
           <option value="corporate entity">y </option>
         </select>
         <br />
-        <label htmlFor="gsm">GSM Number: </label>
+        <label className="edit-label" htmlFor="gsm">GSM Number </label>
         <input
-          className="input"
+           className="edit-input"
           type="tel"
           name="gsm"
-          pattern="+94[7-9]{2}-[0-9]{3}-[0-9]{4}"
-           value="+90"
-        //   onChange={handleInputChange}
-        //   value={formState.gsm}
+          onChange={handleInputEdit}
+          value={formState.gsm}
         />
         <br />
 
-        <label htmlFor="email">E-mail </label>
+        <label className="edit-label" htmlFor="email">E-mail </label>
         <input
-          className="input"
+           className="edit-input"
           type="email"
           name="email"
-        //   onChange={handleInputChange}
-        //   value={formState.email}
-        required
+          onChange={handleInputEdit}
+          value={formState.email}
         />
-        <button className="CustomerEditFormButton">Edit</button>
+        <br/>
+        <button className="CustomerEditFormButton" onClick={() => props.clickToEdit(this.props.id)}>Edit</button>
       </form>
-            <p>
-              {props.customerName}
-            </p>
+
+<div>
+       <h4> Customer Informations</h4>
+<p>
+{props.location.state.customerName}
+</p>
+<p>
+{props.location.state.email}
+</p>
+<p>
+{props.location.state.gsm}
+</p>
+</div> 
         </div>
     )
 }

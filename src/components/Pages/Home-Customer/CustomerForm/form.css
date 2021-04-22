@@ -11,12 +11,16 @@
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
   }
+
+  .sidenav h3{
+    color: white;
+    text-align: center;
+  }
   
   .customerForm {
     background-color: rgb(51, 51, 51);
     padding: 50px 100px;
     border-top: 10px solid yellow;
-    border-bottom: 10px solid yellow;
     color: white;
   }
   

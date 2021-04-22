@@ -1,0 +1,44 @@
+.EditForm {
+  background-color: rgb(51, 51, 51);
+  border: 10px solid yellow;
+  color: white;
+  width: 30%;
+  margin-left: 40%;
+  margin-top: 5%;
+  padding: 50px;
+}
+
+.edit-input {
+  width: 200px;
+  border: 1px solid #000;
+  float: right;
+}
+
+.EditForm button {
+  width: 200px;
+  margin: 2%;
+  margin-right: 20%;
+}
+
+label {
+  margin-top: 10px;
+  margin-left: 10px;
+  text-align: right;
+}
+
+.customerFormButton {
+  float: right;
+  line-height: 40px;
+  padding: 0 20px;
+  border: none;
+  background: yellow;
+  color: black;
+  letter-spacing: 2px;
+  transition: 0.2s all ease-in-out;
+  border-bottom: 2px solid transparent;
+  outline: none;
+}
+
+.customerFormButton:focus {
+  background-color: rgb(57, 5, 99);
+}

@@ -43,6 +43,7 @@ const HomeCustomers = (props) => {
 
   return (
     <div className="sidenav" >
+    <h3>CREATE NEW CUSTOMER</h3>
         <form onSubmit={handleFormSubmit} className="customerForm">
         <label htmlFor="customerName">Customer Name </label>
           <input
