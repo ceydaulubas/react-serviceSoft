@@ -5,9 +5,25 @@
     width: 50%;
     margin-top: 2%;
     margin-left: 25%;
+    background-color: rgb(51, 51, 51);
+    border-top: 10px solid yellow;
 }
 
 .customerNameSearch{
     width: 30%;
     padding: 2%;
+    margin: 2%;
+}
+
+.customers-info-table{
+    display: block;
+    overflow: auto;
+    width: 90%;
+    table-layout: fixed;
+}
+
+.addCustomerButton{
+    width: 30%;
+    padding: 2%;
+    margin: 2%;
 }

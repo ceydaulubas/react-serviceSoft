@@ -5,8 +5,9 @@ import './form.css'
 const InitialState = {
   "customerName": "",
   "customerType": "",
+  "customerTitle": "",
   "customerRole": "",
-  "gsm": 0,
+  "gsm": 90,
   "email": "",
   "website": "",
   "relatedFirm": "",
@@ -67,19 +68,34 @@ const HomeCustomers = (props) => {
             required
           >
             <option value="Real">Real</option>
-            <option value="corporate entity">Corporate Entity </option>
+            <option value="Corporate Entity">Corporate Entity </option>
           </select>
           <br />
 
-          <label htmlFor="customerRole">Customer Role </label>
+          <label htmlFor="customerTitle">Customer Title </label>
           <textarea rows="1" cols="40"
+            className="input"
+            type="text"
+            name="customerTitle"
+            onChange={handleInputChange}
+            value={formState.customerTitle}
+            required
+          />
+          <br />
+
+          <label htmlFor="customerRole">Customer Role </label>
+          <select
             className="input"
             type="text"
             name="customerRole"
             onChange={handleInputChange}
             value={formState.customerRole}
             required
-          />
+          >
+            <option value="React Dev.">React Dev.</option>
+            <option value="Mern Dev.">Mern Dev. </option>
+            <option value="Angular Dev.">Angular Dev.</option>
+          </select>
           <br />
 
           <label htmlFor="gsm">GSM Number </label>

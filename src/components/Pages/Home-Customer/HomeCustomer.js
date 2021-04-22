@@ -67,17 +67,15 @@ export class HomeCustomer extends Component {
     };
 
 
-
     render() {
         return (
             <div>
                 <div className="add-filter-part">
-                
                 <CustomerNameSearch handleFilterSearch={this.handleFilterCustomerName} />
 
                     {/* Button to toggle addCustomer form */}
-                    <Button variant="contained" className="addCustomerButton" onClick={this.handleRenderForm}>Add New Customer</Button>
-                    {/* <button className="addCustomerButton" onClick={this.handleRenderForm}>Add New Customer</button> */}
+                    {/* <Button variant="contained" className="addCustomerButton" onClick={this.handleRenderForm}>Add New Customer</Button> */}
+                    <button className="addCustomerButton" onClick={this.handleRenderForm}>Add New Customer</button>
                     {/* Toggle the form when this.state.form has the value of "true"*/}
                     {this.state.form && (
                         <CustomerForm handleLiftCustomerFormState={this.handleAddNewCustomer} />
@@ -86,11 +84,12 @@ export class HomeCustomer extends Component {
                 </div>
 
                 <div>
-                    <Table striped bordered hover className="table">
+                    <Table striped bordered hover className="customers-info-table">
                         <thead>
                             <tr>
                                 <th>Customer Name</th>
                                 <th>Customer Type</th>
+                                <th>Customer Title</th>
                                 <th>Customer Role</th>
                                 <th>GSM Number</th>
                                 <th>E-mail</th>
@@ -119,7 +118,6 @@ export class HomeCustomer extends Component {
                                     {...Customer}
                                     clickToDelete={this.handleDeleteCustomer}
                                     clickToEdit={this.handleEditCustomer}
-
                                 />
                             ))
                         }

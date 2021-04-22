@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-import Button from '@material-ui/core/Button';
 import './box.css'
 import { IconButton } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -20,6 +19,7 @@ class CustomerBox extends Component {
         <tr>
           <td>{this.props.customerName}</td>
           <td>{this.props.customerType}</td>
+          <td>{this.props.customerTitle}</td>
           <td>{this.props.customerRole}</td>
           <td>{this.props.gsm}</td>
           <td>{this.props.email}</td>
