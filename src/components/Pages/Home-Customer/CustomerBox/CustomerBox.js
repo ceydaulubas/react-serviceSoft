@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 
-// import IconButton from '@material-ui/core/IconButton';
-// import {DeleteIcon} from '@material-ui/icons/DeleteIcon'
 import Button from '@material-ui/core/Button';
 import './box.css'
+import { IconButton } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 
 class CustomerBox extends Component {
 
@@ -26,15 +27,9 @@ class CustomerBox extends Component {
           <td>{this.props.relatedFirm}</td>
           <td>{this.props.adress}</td>
           <td>{this.props.file}</td>
-          <td>{this.props.note}</td>
-          {/* <td><button><Link to={`/editCustomer/${ this.props.customerName }`}>Edit</Link></button></td> */}
-          
-          {/* <td><button><Link to={{pathname: '/editCustomer',state: this.props}}> Edit</Link></button></td> */}
-          
-          <td><Button variant="contained"onClick={() => this.props.clickToEdit(this.props.id)}> Edit </Button></td>
-          <td><Button variant="contained" onClick={() => this.myConfirm()}> Delete </Button></td> 
-          
-  
+          <td>{this.props.note}</td>    
+          <td><IconButton onClick={() => this.props.clickToEdit(this.props.id)}><EditIcon/></IconButton></td>
+          <td><IconButton onClick={() => this.myConfirm()}><DeleteIcon/></IconButton></td>
 
 
         </tr>
