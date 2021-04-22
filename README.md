@@ -1,7 +1,7 @@
 # ServicePlatform
 
-<img src="/ServiceSoftMainPage.png" width="350" alt="main screen">
-<img src="/ServiceSoftEditPage.png" width="350" alt="edit screen">
+<img src="/ServiceSoftMainPage.png" width="700" alt="main screen">
+<img src="/ServiceSoftEditPage.png" width="700" alt="edit screen">
 
 # General info
 
