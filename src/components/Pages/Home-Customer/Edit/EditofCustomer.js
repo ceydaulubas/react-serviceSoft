@@ -3,18 +3,26 @@ import './Edit.css'
 
 // import {Form, Button} from 'react-bootstrap'
 
+
+// const InitialState = {
+//   "customerName": "",
+//   "customerRole": "",
+//   "gsm": 90,
+//   "email": ""
+// };
+
 const EditOfCustomer = (props) => {
 
   const [formState, setFormState] = useState(props.location.state);
-
   console.log(props.location.state)
-  const handleInputEdit = (event) => {
 
+  const handleInputEdit = (event) => {
     // inputValue - the data coming in from the input fields
     let inputValue = event.target.value;
     let inputName = event.target.name;
     let inputType = event.target.type;
 
+    console.log(inputValue)
     if (inputType === 'number') {
       inputValue = parseInt(inputValue);
     }
@@ -48,7 +56,7 @@ const EditOfCustomer = (props) => {
           </ul>
           <hr />
         </div>
-      </div>
+      </div> 
 
 
       <form onSubmit={EditOfCustomer} className="EditForm" >

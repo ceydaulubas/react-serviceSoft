@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Switch, Route } from 'react-router-dom';
 
 import NavBar from './components/NavBar';
+import MainPage from './components/Pages/MainPage'
 import HomeCustomer from './components/Pages/Home-Customer/HomeCustomer';
 import Products from './components/Pages/Products';
 import Orders from './components/Pages/Orders';
@@ -18,7 +19,8 @@ const App = () => {
      <NavBar/>
 
      <Switch>
-          <Route exact path='/' component={HomeCustomer}/>
+          <Route exact path='/' component={MainPage}/>
+          <Route path='/customers' component={HomeCustomer}/>
           <Route path='/products' component={Products}/>
           <Route path='/orders' component={Orders}/>
           <Route path='/invoiceInfo' component={InvoiceInfo}/>

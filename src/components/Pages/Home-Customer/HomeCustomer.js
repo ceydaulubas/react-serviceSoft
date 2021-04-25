@@ -47,11 +47,12 @@ export class HomeCustomer extends Component {
     handleEditCustomer = (customerId) => {
         const customerCopy = this.state.customerState;
         const customerIndex = customerCopy.findIndex((item) => item.id === customerId);
-        // console.log(customerCopy[customerIndex])
+        console.log(customerCopy[customerIndex])
         this.props.history.push({
             pathname: "/editCustomer",
             state: customerCopy[customerIndex]
         });
+
     }
 
     // filter customer name according to the incoming search value
