@@ -181,6 +181,25 @@ const HomeCustomers = (props) => {
           <button className="customerFormButton">Create</button>
         </form>
 
+        {/* <Form onSubmit={handleFormSubmit}>
+  <Form.Group controlId="customerName">
+    <Form.Control className="input"
+            type="text"
+            name="customerName"
+            onChange={handleInputChange}
+            value={formState.customerName}
+            required
+            placeholder="Customer Name" />
+  </Form.Group>
+
+  <Form.Group controlId="formBasicPassword">
+    <Form.Control type="password" placeholder="Password" />
+  </Form.Group>
+  <Button variant="primary" type="submit">
+    Submit
+  </Button>
+</Form> */}
+
     </div>
   )
 }

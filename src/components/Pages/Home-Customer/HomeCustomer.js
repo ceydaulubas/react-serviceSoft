@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { Table } from 'react-bootstrap'
 
-import Button from '@material-ui/core/Button';
-
 import customersList from '../../../customers.json'
 import CustomerForm from './CustomerForm/CustomerForm';
 import CustomerBox from './CustomerBox/CustomerBox';
 import CustomerNameSearch from './SearchCustomersName/Filter'
 
 import '../Home-Customer/Style/HomeCustomerStyle.css'
+
+
 
 export class HomeCustomer extends Component {
     state = {
@@ -47,7 +47,8 @@ export class HomeCustomer extends Component {
     handleEditCustomer = (customerId) => {
         const customerCopy = this.state.customerState;
         const customerIndex = customerCopy.findIndex((item) => item.id === customerId);
-        console.log(customerCopy[customerIndex])
+
+        // console.log(customerCopy[customerIndex])
         this.props.history.push({
             pathname: "/editCustomer",
             state: customerCopy[customerIndex]
@@ -73,10 +74,9 @@ export class HomeCustomer extends Component {
             <div>
                 <div className="add-filter-part">
                 <CustomerNameSearch handleFilterSearch={this.handleFilterCustomerName} />
-
                     {/* Button to toggle addCustomer form */}
-                    {/* <Button variant="contained" className="addCustomerButton" onClick={this.handleRenderForm}>Add New Customer</Button> */}
-                    <button className="addCustomerButton" onClick={this.handleRenderForm}>Add New Customer</button>
+                    <button type="button" className="btn btn-secondary"onClick={this.handleRenderForm}>Add New Customer</button>
+                
                     {/* Toggle the form when this.state.form has the value of "true"*/}
                     {this.state.form && (
                         <CustomerForm handleLiftCustomerFormState={this.handleAddNewCustomer} />
@@ -120,7 +120,9 @@ export class HomeCustomer extends Component {
                                     clickToDelete={this.handleDeleteCustomer}
                                     clickToEdit={this.handleEditCustomer}
                                 />
+                                
                             ))
+                           
                         }
                     </Table>
                 </div>

@@ -5,10 +5,9 @@ import '../Pages/Home-Customer/Style/MainPage.css'
 
 const MainPage = () => {
     return (
-
-        <div class="container main">
-            <div class="row justify-content-md-center">
-                <div class="col">
+        <div className="container main">
+            <div className="row justify-content-md-center">
+                <div className="col">
                     <Carousel>
                         <Carousel.Item>
                             <img
@@ -35,11 +34,6 @@ const MainPage = () => {
                 </div>
             </div>
         </div>
-
-
-
-
-
     )
 }
 
